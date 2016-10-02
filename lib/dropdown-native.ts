@@ -39,12 +39,3 @@ export function Dropdown( element) {
   this.menu.setAttribute('tabindex', '0'); // Fix onblur on Chrome | Safari
   document.addEventListener('click', this.handle, false);
 };
-
-(function () {
-  // DROPDOWN DATA API
-  // =================
-  var Dropdowns = document.querySelectorAll('[data-toggle=dropdown]'), i = 0, ddl = Dropdowns.length;
-  for (i;i<ddl;i++) {
-    new Dropdown(Dropdowns[i]);
-  }
-})();
