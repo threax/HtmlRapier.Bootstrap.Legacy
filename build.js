@@ -6,6 +6,10 @@ function compile(rootDir, outDir) {
     return compileTypescript({
         libs: [
             __dirname + "/lib/**/*.ts",
+            __dirname + "/plugin/**/*.ts",
+        ],
+        runners:[
+            'hr.bootstrap.runner'
         ],
         output: "htmlrapier.bootstrap",
         dest: outDir,

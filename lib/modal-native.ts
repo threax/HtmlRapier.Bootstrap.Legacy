@@ -5,7 +5,7 @@ import { isIE, addClass, removeClass } from 'hr.bootstrap.utils';
 
 //MODAL DEFINITION
 // ===============
-var Modal = function(element, options?:any) { // element is the is the modal
+export function Modal(element, options?:any) { // element is the is the modal
   options = options || {};
   this.modal = typeof element === 'object' ? element : document.querySelector(element);
   this.options = {};
