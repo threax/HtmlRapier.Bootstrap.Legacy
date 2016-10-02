@@ -1,9 +1,11 @@
 // Native Javascript for Bootstrap 3 | Tab
 // by dnp_theme
 
+import { isIE, addClass, removeClass } from 'hr.bootstrap.utils';
+
 // TAB DEFINITION
 // ===================
-var Tab = function( element,options ) {
+export function Tab( element,options ) {
   options = options || {};
   this.tab = typeof element === 'object' ? element : document.querySelector(element);
   this.tabs = this.tab.parentNode.parentNode;
@@ -21,7 +23,7 @@ var Tab = function( element,options ) {
   var self = this;
 
   this.handle = function(e) {
-    e = e || window.e; e.preventDefault();
+    e = e || (window as any).e; e.preventDefault();
     var next = e.target; //the tab we clicked is now the next tab
     var nextContent = document.getElementById(next.getAttribute('href').replace('#','')); //this is the actual object, the next tab content to activate
 
@@ -79,7 +81,7 @@ var Tab = function( element,options ) {
   // =================
   var Tabs = document.querySelectorAll("[data-toggle='tab'], [data-toggle='pill']"), tbl = Tabs.length, i=0;
   for ( i;i<tbl;i++ ) {
-    var tab = Tabs[i], options = {};
+    var tab = Tabs[i], options:any = {};
     options.duration = tab.getAttribute('data-duration') && tab.getAttribute('data-duration') || false;
     new Tab(tab,options);
   }

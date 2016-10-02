@@ -3,7 +3,7 @@
 
 // DROPDOWN DEFINITION
 // ===================
-var Dropdown = function( element) {
+export function Dropdown( element) {
   this.menu = typeof element === 'object' ? element : document.querySelector(element);
   var self = this;
 

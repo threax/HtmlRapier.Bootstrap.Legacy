@@ -1,9 +1,11 @@
 // Native Javascript for Bootstrap 3 | Button
 // by dnp_theme
 
+import { addClass, removeClass } from 'utils';
+
 // BUTTON DEFINITION
 // ===================
-var Button = function( element, option ) {
+export function Button( element, option? ) {
   this.btn = typeof element === 'object' ? element : document.querySelector(element);
   this.option = typeof option === 'string' ? option : null;
 

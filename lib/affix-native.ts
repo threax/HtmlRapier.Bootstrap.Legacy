@@ -1,8 +1,10 @@
 // Native Javascript for Bootstrap 3 | Affix
 // by dnp_theme
 
+import { isIE } from 'hr.bootstrap.utils';
+
 //AFFIX DEFINITION
-var Affix = function(element,options) {
+export function Affix(element,options) {
   options = options || {};
 
   this.element = typeof element === 'object' ? element : document.querySelector(element);
@@ -115,7 +117,7 @@ var Affix = function(element,options) {
   // =================
   var Affixes = document.querySelectorAll('[data-spy="affix"]'), i = 0, afl = Affixes.length;
   for (i;i<afl;i++) {
-    var item = Affixes[i], options = {};
+    var item = Affixes[i], options:any = {};
       options.offsetTop     = item.getAttribute('data-offset-top');
       options.offsetBottom  = item.getAttribute('data-offset-bottom');
       options.target        = item.getAttribute('data-target');

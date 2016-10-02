@@ -3,7 +3,7 @@
 
 // ALERT DEFINITION
 // ===================
-var Alert = function( element ) {
+export function Alert( element ) {
   this.btn = typeof element === 'object' ? element : document.querySelector(element);
   this.alert = null;
   this.duration = 150; // default alert transition duration

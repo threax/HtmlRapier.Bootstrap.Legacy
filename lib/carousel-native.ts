@@ -1,9 +1,11 @@
 // Native Javascript for Bootstrap 3 | Carousel
 // by dnp_theme
 
+import { isIE } from 'hr.bootstrap.utils';
+
 // CAROUSEL DEFINITION
 // ===================
-var Carousel = function( element, options ) {
+export function Carousel( element, options ) {
   options = options || {};
 
   this.carousel = (typeof element === 'object') ? element : document.querySelector( element );
@@ -235,7 +237,7 @@ var Carousel = function( element, options ) {
   // =================
   var Carousels = document.querySelectorAll('[data-ride="carousel"]'), i = 0, crl = Carousels.length;
   for (i;i<crl;i++) {
-    var c = Carousels[i], options = {};
+    var c = Carousels[i], options:any = {};
     options.interval = c.getAttribute('data-interval') && c.getAttribute('data-interval');
     options.pause = c.getAttribute('data-pause') && c.getAttribute('data-pause') || 'hover';
     options.keyboard = c.getAttribute('data-keyboard') && c.getAttribute('data-keyboard') || false;

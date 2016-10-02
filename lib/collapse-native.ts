@@ -1,9 +1,11 @@
 // Native Javascript for Bootstrap 3 | Collapse
 // by dnp_theme
 
+import { isIE, addClass, removeClass, getClosest } from 'hr.bootstrap.utils';
+
 // COLLAPSE DEFINITION
 // ===================
-var Collapse = function( element, options ) {
+export function Collapse( element, options ) {
   options = options || {};
 
   this.btn = typeof element === 'object' ? element : document.querySelector(element);
@@ -15,11 +17,11 @@ var Collapse = function( element, options ) {
   var self = this;
   var getOuterHeight = function (el) {
     var s = el && (el.currentStyle || window.getComputedStyle(el)), // the getComputedStyle polyfill would do this for us, but we want to make sure it does
-      btp = /px/.test(s.borderTopWidth) ? Math.round(s.borderTopWidth.replace('px','')) : 0,
-      mtp = /px/.test(s.marginTop)  ? Math.round(s.marginTop.replace('px',''))    : 0,
-      mbp = /px/.test(s.marginBottom)  ? Math.round(s.marginBottom.replace('px',''))  : 0,
-      mte = /em/.test(s.marginTop)  ? Math.round(s.marginTop.replace('em','')    * parseInt(s.fontSize)) : 0,
-      mbe = /em/.test(s.marginBottom)  ? Math.round(s.marginBottom.replace('em','')  * parseInt(s.fontSize)) : 0;
+      btp:any = /px/.test(s.borderTopWidth) ? Math.round(s.borderTopWidth.replace('px','')) : 0,
+      mtp:any = /px/.test(s.marginTop)  ? Math.round(s.marginTop.replace('px',''))    : 0,
+      mbp:any = /px/.test(s.marginBottom)  ? Math.round(s.marginBottom.replace('px',''))  : 0,
+      mte:any = /em/.test(s.marginTop)  ? Math.round(s.marginTop.replace('em','')    * parseInt(s.fontSize)) : 0,
+      mbe:any = /em/.test(s.marginBottom)  ? Math.round(s.marginBottom.replace('em','')  * parseInt(s.fontSize)) : 0;
     return el.clientHeight + parseInt( btp ) + parseInt( mtp ) + parseInt( mbp ) + parseInt( mte ) + parseInt( mbe ); //we need an accurate margin value
   };
 
@@ -116,7 +118,7 @@ var Collapse = function( element, options ) {
   // =================
   var Collapses = document.querySelectorAll('[data-toggle="collapse"]'), i = 0, cll = Collapses.length;
   for (i;i<cll;i++) {
-    var item = Collapses[i], options = {};
+    var item = Collapses[i], options:any = {};
     options.duration = item.getAttribute('data-duration');
     new Collapse(item,options);
   }

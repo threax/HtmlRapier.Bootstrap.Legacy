@@ -1,9 +1,11 @@
 // Native Javascript for Bootstrap 3 | Tooltip
 // by dnp_theme
 
+import { isIE, isElementInViewport } from 'hr.bootstrap.utils';
+
 // TOOLTIP DEFINITION
 // ===================
-var Tooltip = function( element,options ) {
+export function Tooltip( element,options ) {
   options = options || {};
 
   this.link = typeof element === 'object' ? element : document.querySelector(element);
@@ -137,7 +139,7 @@ var Tooltip = function( element,options ) {
   // =================
   var Tooltips = document.querySelectorAll('[data-toggle=tooltip]'), i = 0, tpl = Tooltips.length;
   for (i;i<tpl;i++){
-    var item = Tooltips[i], options = {};
+    var item = Tooltips[i], options:any = {};
     options.animation = item.getAttribute('data-animation');
     options.placement = item.getAttribute('data-placement');
     options.duration = item.getAttribute('data-duration');

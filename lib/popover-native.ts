@@ -3,7 +3,10 @@
 
 // POPOVER DEFINITION
 // ===================
-var Popover = function( element,options ) {
+
+import { isIE, isElementInViewport } from 'hr.bootstrap.utils';
+
+export function Popover( element,options ) {
   options = options || {};
   this.link = typeof element === 'object' ? element : document.querySelector(element);
   this.title = this.link.getAttribute('data-title') || null;
@@ -104,7 +107,7 @@ var Popover = function( element,options ) {
     } else {  // or create the popover from template
       var template = document.createElement('div');
       template.innerHTML = this.options.template;
-      this.popover.innerHTML = template.firstChild.innerHTML;
+      this.popover.innerHTML = (template.firstChild as HTMLElement).innerHTML;
     }
 
     //append to the container
@@ -193,7 +196,7 @@ var Popover = function( element,options ) {
   // =================
   var Popovers = document.querySelectorAll('[data-toggle=popover]'), i = 0, ppl = Popovers.length;
   for (i;i<ppl;i++){
-    var item = Popovers[i], options = {};
+    var item = Popovers[i], options:any = {};
     options.trigger = item.getAttribute('data-trigger'); // click / hover / focus
     options.animation = item.getAttribute('data-animation'); // true / false
     options.duration = item.getAttribute('data-duration');

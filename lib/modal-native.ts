@@ -1,9 +1,11 @@
 // Native Javascript for Bootstrap 3 | Modal
 // by dnp_theme
 
+import { isIE, addClass, removeClass } from 'hr.bootstrap.utils';
+
 //MODAL DEFINITION
 // ===============
-var Modal = function(element, options) { // element is the is the modal
+var Modal = function(element, options?:any) { // element is the is the modal
   options = options || {};
   this.modal = typeof element === 'object' ? element : document.querySelector(element);
   this.options = {};
@@ -43,13 +45,13 @@ var Modal = function(element, options) { // element is the is the modal
       self.scrollbarWidth = measureScrollbar();
     };
 
-  this.open = function() {
-    var currentOpen = document.querySelector('.modal.in');
+  this.open = function () {
+    var currentOpen = document.querySelector('.modal.in') as HTMLElement;
     if (currentOpen){
-      clearTimeout(currentOpen.getAttribute('data-timer'));
+      clearTimeout(Number(currentOpen.getAttribute('data-timer')));
       removeClass(currentOpen,'in');
       setTimeout( function() {
-        currentOpen.setAttribute('aria-hidden', true);
+        currentOpen.setAttribute('aria-hidden', String(true));
         currentOpen.style.display = '';
       }, this.options.duration/2);
     }
@@ -224,7 +226,7 @@ var Modal = function(element, options) { // element is the is the modal
   // DATA API
   var Modals = document.querySelectorAll('.modal'), mdl = Modals.length, i = 0;
   for ( i;i<mdl;i++ ) {
-    var modal = Modals[i], options = {};
+    var modal = Modals[i], options:any = {};
     options.keyboard = modal.getAttribute('data-keyboard');
     options.backdrop = modal.getAttribute('data-backdrop');
     options.duration = modal.getAttribute('data-duration');
