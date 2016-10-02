@@ -2,6 +2,7 @@
 // by dnp_theme
 
 import { isIE, addClass, removeClass } from 'hr.bootstrap.utils';
+import { EventHandler } from 'hr.eventhandler';
 
 //MODAL DEFINITION
 // ===============
@@ -17,6 +18,12 @@ export function Modal(element, options?:any) { // element is the is the modal
   this.scrollbarWidth = 0;
   this.dialog = this.modal.querySelector('.modal-dialog');
   this.timer = 0;
+
+  var openEventHander = new EventHandler;
+  var closeEventHandler = new EventHandler;
+
+  this.openEvent = openEventHander.modifier;
+  this.closeEvent = closeEventHandler.modifier;
 
   var self = this,
     getWindowWidth = function() {
@@ -82,9 +89,7 @@ export function Modal(element, options?:any) { // element is the is the modal
       addClass(self.modal,'in');
       self.modal.setAttribute('aria-hidden', false);
 
-      if (('CustomEvent' in window) && window.dispatchEvent) {
-          self.modal.dispatchEvent(new CustomEvent("shown.bs.modal"));
-      }
+      openEventHander.fire(this);
     }, this.options.duration/2);
     this.modal.setAttribute('data-timer',this.timer);
   }
@@ -107,9 +112,7 @@ export function Modal(element, options?:any) { // element is the is the modal
       self.keydown();
       self.modal.style.display = '';
 
-      if (('CustomEvent' in window) && window.dispatchEvent) {
-          self.modal.dispatchEvent(new CustomEvent("hidden.bs.modal"));
-      }
+      closeEventHandler.fire(this);
     }, this.options.duration/2);
     this.modal.setAttribute('data-timer',this.timer);
 

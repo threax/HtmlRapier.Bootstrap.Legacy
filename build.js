@@ -21,10 +21,11 @@ function compile(rootDir, outDir) {
             'hr.bootstrap.dataapi.scrollspy',
             'hr.bootstrap.dataapi.tab',
             'hr.bootstrap.dataapi.tooltip',
+            'hr.bootstrap.ModalToggle',
         ],
         output: "htmlrapier.bootstrap",
         dest: outDir,
-        sourceRoot: __dirname + "/lib/",
+        sourceRoot: __dirname + "/plugin/",
         minify: true,
         concat: true,
         namespace: 'hr.bootstrap'
