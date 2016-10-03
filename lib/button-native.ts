@@ -1,7 +1,7 @@
 // Native Javascript for Bootstrap 3 | Button
 // by dnp_theme
 
-import { addClass, removeClass } from 'utils';
+import { addClass, removeClass } from 'hr.bootstrap.utils';
 
 // BUTTON DEFINITION
 // ===================
