@@ -25,7 +25,7 @@ function compile(rootDir, outDir) {
         ],
         output: "htmlrapier.bootstrap",
         dest: outDir,
-        sourceRoot: __dirname + "/plugin/",
+        sourceRoot: __dirname + "/lib/",
         minify: true,
         concat: true,
         namespace: 'hr.bootstrap'
