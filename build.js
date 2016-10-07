@@ -1,6 +1,20 @@
 ﻿var compileTypescript = require('threax-gulp-tk/typescript.js');
 
-function compile(rootDir, outDir) {
+function compile(rootDir, outDir, settings) {
+    if(settings === undefined){
+        settings = {};
+    }
+
+    var concat = true;
+    if(settings.concat !== undefined){
+        concat = settings.concat;
+    }
+
+    var minify = true;
+    if(settings.minify !== undefined){
+        minify = settings.minify;
+    }
+
     console.log("Compiling hr.bootstrap");
 
     return compileTypescript({
@@ -23,11 +37,11 @@ function compile(rootDir, outDir) {
             'hr.bootstrap.dataapi.tooltip',
             'hr.bootstrap.ModalToggle',
         ],
-        output: "htmlrapier.bootstrap",
+        output: "HtmlRapierBootstrap",
         dest: outDir,
         sourceRoot: __dirname + "/lib/",
-        minify: true,
-        concat: true,
+        minify: minify,
+        concat: concat,
         namespace: 'hr.bootstrap'
     });
 }
