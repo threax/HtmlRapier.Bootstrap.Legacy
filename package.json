@@ -4,18 +4,17 @@
   "description": "Bootstrap 3 for html rapier, based off thednp/bootstrap.native",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/threax/bootstrap.native.git"
+    "url": "git+https://github.com/threax/HtmlRapier.Bootstrap.git"
   },
   "author": "dnp_theme",
   "maintainers": [ "threax" ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/threax/bootstrap.native/issues"
+    "url": "https://github.com/threax/HtmlRapier.Bootstrap/issues"
   },
-  "homepage": "https://github.com/threax/bootstrap.native/",
+  "homepage": "https://github.com/threax/HtmlRapier.Bootstrap/",
   "devDependencies": {
-    "onchange": "^3.0.2",
-    "uglify-js": "^2.7.3",
-    "yargs": "^5.0.0"
+    "threax-gulp-tk": "^1.2.2",
+    "htmlrapier": "^1.2.1"
   }
 }
