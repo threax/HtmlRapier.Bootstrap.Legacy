@@ -115,9 +115,11 @@ export function Collapse( element, options ) {
 
 // COLLAPSE DATA API
 // =================
-var Collapses = document.querySelectorAll('[data-toggle="collapse"]'), i = 0, cll = Collapses.length;
-for (i; i < cll; i++) {
-    var item = Collapses[i], options: any = {};
-    options.duration = item.getAttribute('data-duration');
-    new Collapse(item, options);
+export function activate(){
+  var Collapses = document.querySelectorAll('[data-toggle="collapse"]'), i = 0, cll = Collapses.length;
+  for (i; i < cll; i++) {
+      var item = Collapses[i], options: any = {};
+      options.duration = item.getAttribute('data-duration');
+      new Collapse(item, options);
+  }
 }

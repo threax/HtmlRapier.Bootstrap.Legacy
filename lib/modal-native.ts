@@ -224,16 +224,6 @@ export function Modal(element, options?): void { // element is the trigger butto
     }
 };
 
-// DATA API
-var Modals = document.querySelectorAll('.modal'), mdl = Modals.length, i = 0;
-for (i; i < mdl; i++) {
-    var modal = Modals[i], options: any = {};
-    options.keyboard = modal.getAttribute('data-keyboard');
-    options.backdrop = modal.getAttribute('data-backdrop');
-    options.duration = modal.getAttribute('data-duration');
-    new Modal(modal, options)
-}
-
 //Toggle Plugin
 function ModalToggle(element, next) {
     var onEventHandler = new EventHandler();
@@ -262,10 +252,24 @@ function ModalToggle(element, next) {
     this.applyState = applyState;
 }
 
-toggles.addTogglePlugin(function (element, states, toggle) {
-    if (element.classList.contains('modal')) {
-        toggle = new ModalToggle(element, toggle);
+// DATA API
+export function activate(){
+    //From bootstrap.native
+    var Modals = document.querySelectorAll('.modal'), mdl = Modals.length, i = 0;
+    for (i; i < mdl; i++) {
+        var modal = Modals[i], options: any = {};
+        options.keyboard = modal.getAttribute('data-keyboard');
+        options.backdrop = modal.getAttribute('data-backdrop');
+        options.duration = modal.getAttribute('data-duration');
+        new Modal(modal, options)
     }
 
-    return toggle;
-});
+    //Html Rapier Plugin
+    toggles.addTogglePlugin(function (element, states, toggle) {
+        if (element.classList.contains('modal')) {
+            toggle = new ModalToggle(element, toggle);
+        }
+
+        return toggle;
+    });
+}
