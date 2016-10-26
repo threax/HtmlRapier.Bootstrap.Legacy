@@ -112,3 +112,12 @@ export function Collapse( element, options ) {
   this.accordion = this.btn.getAttribute('data-parent')
     && getClosest(this.btn, this.btn.getAttribute('data-parent'));
 };
+
+// COLLAPSE DATA API
+// =================
+var Collapses = document.querySelectorAll('[data-toggle="collapse"]'), i = 0, cll = Collapses.length;
+for (i; i < cll; i++) {
+    var item = Collapses[i], options: any = {};
+    options.duration = item.getAttribute('data-duration');
+    new Collapse(item, options);
+}

@@ -24,3 +24,10 @@ export function Alert( element ) {
   }
   document.addEventListener('click', this.close, false); //delegate to all alerts, including those inserted later into the DOM
 };
+
+// ALERT DATA API
+// =================
+var Alerts = document.querySelectorAll('[data-dismiss="alert"]'), i = 0, all = Alerts.length;
+for (i; i < all; i++) {
+    new Alert(Alerts[i]);
+}

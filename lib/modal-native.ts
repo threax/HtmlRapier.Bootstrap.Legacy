@@ -3,6 +3,7 @@
 
 import { isIE, addClass, removeClass } from 'hr.bootstrap.utils';
 import { EventHandler } from 'hr.eventhandler';
+import * as toggles from 'hr.toggles';
 
 //MODAL DEFINITION
 // ===============
@@ -222,3 +223,49 @@ export function Modal(element, options?): void { // element is the trigger butto
         this.content(this.options.content);
     }
 };
+
+// DATA API
+var Modals = document.querySelectorAll('.modal'), mdl = Modals.length, i = 0;
+for (i; i < mdl; i++) {
+    var modal = Modals[i], options: any = {};
+    options.keyboard = modal.getAttribute('data-keyboard');
+    options.backdrop = modal.getAttribute('data-backdrop');
+    options.duration = modal.getAttribute('data-duration');
+    new Modal(modal, options)
+}
+
+//Toggle Plugin
+function ModalToggle(element, next) {
+    var onEventHandler = new EventHandler();
+    var offEventHandler = new EventHandler();
+
+    var modal = new Modal(element);
+
+    this.onEvent = modal.openEvent;
+    this.offEvent = modal.closeEvent;
+
+    function on() {
+        modal.open();
+        return next;
+    }
+    this.on = on;
+
+    function off() {
+        modal.close();
+        return next;
+    }
+    this.off = off;
+
+    function applyState(style) {
+        return next;
+    }
+    this.applyState = applyState;
+}
+
+toggles.addTogglePlugin(function (element, states, toggle) {
+    if (element.classList.contains('modal')) {
+        toggle = new ModalToggle(element, toggle);
+    }
+
+    return toggle;
+});
