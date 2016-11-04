@@ -21,7 +21,7 @@ function compile(rootDir, outDir, settings) {
         libs: [
             __dirname + "/lib/**/*.ts",
         ],
-        runners: false,
+        runners: ['hr.bootstrap.run'],
         output: "HtmlRapierBootstrap",
         dest: outDir,
         sourceRoot: __dirname + "/lib/",
