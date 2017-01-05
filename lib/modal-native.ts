@@ -2,7 +2,7 @@
 // by dnp_theme
 
 import { isIE, addClass, removeClass } from 'hr.bootstrap.utils';
-import { EventHandler } from 'hr.eventhandler';
+import { ActionEventDispatcher } from 'hr.eventdispatcher';
 import * as toggles from 'hr.toggles';
 
 //MODAL DEFINITION
@@ -20,8 +20,8 @@ export function Modal(element, options?): void { // element is the trigger butto
     this.dialog = this.modal.querySelector('.modal-dialog');
     this.timer = 0;
 
-    var openEventHander = new EventHandler;
-    var closeEventHandler = new EventHandler;
+    var openEventHander = new ActionEventDispatcher<any>();
+    var closeEventHandler = new ActionEventDispatcher<any>();
     this.openEvent = openEventHander.modifier;
     this.closeEvent = closeEventHandler.modifier;
 
@@ -226,9 +226,6 @@ export function Modal(element, options?): void { // element is the trigger butto
 
 //Toggle Plugin
 function ModalToggle(element, next) {
-    var onEventHandler = new EventHandler();
-    var offEventHandler = new EventHandler();
-
     var modal = new Modal(element);
 
     this.onEvent = modal.openEvent;
