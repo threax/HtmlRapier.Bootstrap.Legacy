@@ -225,28 +225,34 @@ export function Modal(element, options?): void { // element is the trigger butto
 };
 
 //Toggle Plugin
-function ModalStates(element, next) {
-    var modal = new Modal(element);
+class ModalStates extends toggles.ToggleStates{
+    private modal;
 
-    this.onEvent = modal.openEvent;
-    this.offEvent = modal.closeEvent;
-
-    function on() {
-        modal.open();
-        return next;
+    constructor(element, next) {
+        super(next);
+        this.modal = new Modal(element);
+        this.addState('on', 'on');
+        this.addState('off', 'off');
     }
-    this.on = on;
 
-    function off() {
-        modal.close();
-        return next;
+    public get onEvent() {
+        return this.modal.openEvent;
     }
-    this.off = off;
 
-    function applyState(style) {
-        return next;
+    public get offEvent() {
+        return this.modal.closeEvent;
     }
-    this.applyState = applyState;
+
+    public activateState(state) {
+        switch (state) {
+            case 'on':
+                this.modal.open();
+                break;
+            case 'off':
+                this.modal.close();
+                break;
+        }
+    }
 }
 
 // DATA API
