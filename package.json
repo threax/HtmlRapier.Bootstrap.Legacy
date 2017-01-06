@@ -1,6 +1,6 @@
 {
   "name": "htmlrapier.bootstrap",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Bootstrap 3 for html rapier, based off thednp/bootstrap.native",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/threax/HtmlRapier.Bootstrap/",
   "dependencies": {
-    "htmlrapier": "^3.0.0"
+    "htmlrapier": "^3.1.0"
   },
   "devDependencies": {
     "threax-gulp-tk": "^2.0.0"

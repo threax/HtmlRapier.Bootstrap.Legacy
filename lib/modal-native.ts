@@ -225,7 +225,7 @@ export function Modal(element, options?): void { // element is the trigger butto
 };
 
 //Toggle Plugin
-function ModalToggle(element, next) {
+function ModalStates(element, next) {
     var modal = new Modal(element);
 
     this.onEvent = modal.openEvent;
@@ -264,7 +264,7 @@ export function activate(){
     //Html Rapier Plugin
     toggles.addTogglePlugin(function (element, states, toggle) {
         if (element.classList.contains('modal')) {
-            toggle = new ModalToggle(element, toggle);
+            toggle = new ModalStates(element, toggle);
         }
 
         return toggle;
