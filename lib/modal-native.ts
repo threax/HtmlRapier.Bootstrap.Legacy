@@ -24,6 +24,7 @@ export function Modal(element, options?): void { // element is the trigger butto
     var closeEventHandler = new ActionEventDispatcher<any>();
     this.openEvent = openEventHander.modifier;
     this.closeEvent = closeEventHandler.modifier;
+    this.isOpen = false;
 
     var self = this,
         getWindowWidth = function () {
@@ -53,6 +54,7 @@ export function Modal(element, options?): void { // element is the trigger butto
         };
 
     this.open = function () {
+        this.isOpen = true;
         var currentOpen: any = document.querySelector('.modal.in');
         if (currentOpen) {
             clearTimeout(currentOpen.getAttribute('data-timer'));
@@ -94,7 +96,7 @@ export function Modal(element, options?): void { // element is the trigger butto
         this.modal.setAttribute('data-timer', this.timer);
     }
     this.close = function () {
-
+        this.isOpen = false;
         if (this.overlay) {
             removeClass(this.overlay, 'in');
         }
@@ -246,10 +248,14 @@ class ModalStates extends toggles.ToggleStates{
     public activateState(state) {
         switch (state) {
             case 'on':
-                this.modal.open();
+                if (!this.modal.isOpen) {
+                    this.modal.open();
+                }
                 break;
             case 'off':
-                this.modal.close();
+                if (this.modal.isOpen) {
+                    this.modal.close();
+                }
                 break;
         }
     }
