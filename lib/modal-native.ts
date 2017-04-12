@@ -121,8 +121,8 @@ export function Modal(element, options?): void { // element is the trigger butto
         }, this.options.duration);
     }
     this.isOpen = function () {
-        var open = this.modal.getAttribute('aria-hidden');
-        return open === true; //Make sure the value is not explicitly set to true
+        var hidden = this.modal.getAttribute('aria-hidden');
+        return hidden !== true; //Make sure the value is not explicitly set to true
     }
     this.content = function (content) {
         return this.modal.querySelector('.modal-content').innerHTML = content;
@@ -250,12 +250,12 @@ class ModalStates extends toggles.ToggleStates{
     public activateState(state) {
         switch (state) {
             case 'on':
-                if (!this.modal.isOpen()) {
+                if (!this.modal.isOpen() || true) {
                     this.modal.open();
                 }
                 break;
             case 'off':
-                if (this.modal.isOpen()) {
+                if (this.modal.isOpen() || true) {
                     this.modal.close();
                 }
                 break;
