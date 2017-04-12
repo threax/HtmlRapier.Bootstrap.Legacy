@@ -24,7 +24,6 @@ export function Modal(element, options?): void { // element is the trigger butto
     var closeEventHandler = new ActionEventDispatcher<any>();
     this.openEvent = openEventHander.modifier;
     this.closeEvent = closeEventHandler.modifier;
-    this.isOpen = false;
 
     var self = this,
         getWindowWidth = function () {
@@ -54,9 +53,9 @@ export function Modal(element, options?): void { // element is the trigger butto
         };
 
     this.open = function () {
-        this.isOpen = true;
         var currentOpen: any = document.querySelector('.modal.in');
         if (currentOpen) {
+            currentOpen.isOpen = false;
             clearTimeout(currentOpen.getAttribute('data-timer'));
             removeClass(currentOpen, 'in');
             setTimeout(function () {
@@ -96,7 +95,6 @@ export function Modal(element, options?): void { // element is the trigger butto
         this.modal.setAttribute('data-timer', this.timer);
     }
     this.close = function () {
-        this.isOpen = false;
         if (this.overlay) {
             removeClass(this.overlay, 'in');
         }
@@ -121,6 +119,10 @@ export function Modal(element, options?): void { // element is the trigger butto
         setTimeout(function () {
             if (!document.querySelector('.modal.in')) { self.removeOverlay(); }
         }, this.options.duration);
+    }
+    this.isOpen = function () {
+        var open = this.modal.getAttribute('aria-hidden');
+        return open === true; //Make sure the value is not explicitly set to true
     }
     this.content = function (content) {
         return this.modal.querySelector('.modal-content').innerHTML = content;
@@ -248,12 +250,12 @@ class ModalStates extends toggles.ToggleStates{
     public activateState(state) {
         switch (state) {
             case 'on':
-                if (!this.modal.isOpen) {
+                if (!this.modal.isOpen()) {
                     this.modal.open();
                 }
                 break;
             case 'off':
-                if (this.modal.isOpen) {
+                if (this.modal.isOpen()) {
                     this.modal.close();
                 }
                 break;
