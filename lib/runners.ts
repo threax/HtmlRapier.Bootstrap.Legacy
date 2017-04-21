@@ -1,1 +1,2 @@
-(<any>window).jsns.runNamedAmd("node_modules/htmlrapier.bootstrap/lib/run");
+declare var jsns;
+jsns.run("hr.bootstrap.run");
