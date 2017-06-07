@@ -1,6 +1,6 @@
 {
   "name": "htmlrapier.bootstrap",
-  "version": "4.2.0",
+  "version": "4.2.1",
   "description": "Bootstrap 3 for html rapier, based off thednp/bootstrap.native",
   "repository": {
     "type": "git",
