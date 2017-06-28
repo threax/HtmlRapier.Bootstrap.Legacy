@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "hr.bootstrap.*": [
+        "lib/*"
+      ]
+    }
+  },
+  "include": [
+    "lib\\**\\*.ts"
+  ]
+}
