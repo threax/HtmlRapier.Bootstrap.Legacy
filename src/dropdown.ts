@@ -11,31 +11,10 @@ class DropdownStates extends toggles.ToggleStates {
     constructor(element, next) {
         super(next);
         this.drop = $(element).dropdown();
-        this.addState('on', 'on');
-        this.addState('off', 'off');
-    }
-
-    public get onEvent() {
-        return this.drop.openEvent;
-    }
-
-    public get offEvent() {
-        return this.drop.closeEvent;
     }
 
     public activateState(state) {
-        switch (state) {
-            case 'on':
-                if (!this.drop.isOpen()) {
-                    this.drop.open();
-                }
-                break;
-            case 'off':
-                if (this.drop.isOpen()) {
-                    this.drop.close();
-                }
-                break;
-        }
+        //States not supported, handled by bootstrap
     }
 }
 
