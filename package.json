@@ -1,18 +1,18 @@
 {
   "name": "htmlrapier.bootstrap",
-  "version": "4.2.2",
-  "description": "Bootstrap 3 for html rapier, based off thednp/bootstrap.native",
+  "version": "5.0.0",
+  "description": "Bootstrap 3 for html rapier, shims jquery and bootstrap javascript for html rapier use",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/threax/HtmlRapier.Bootstrap.git"
   },
-  "author": "dnp_theme",
-  "maintainers": [ "threax" ],
+  "author": "threax",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/threax/HtmlRapier.Bootstrap/issues"
+  "devDependencies": {
+    "bootstrap": ">=3.3.7",
+    "jquery": "^3.2.1",
+    "@types/node": "^6.0.69"
   },
-  "homepage": "https://github.com/threax/HtmlRapier.Bootstrap/",
   "dependencies": {
     "htmlrapier": ">=4.1.0"
   }
