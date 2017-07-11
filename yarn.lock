@@ -7,16 +7,16 @@
   resolved "https://registry.yarnpkg.com/@types/es6-promise/-/es6-promise-0.0.32.tgz#3bcf44fb1e429f3df76188c8c6d874463ba371fd"
 
 "@types/node@^6.0.69":
-  version "6.0.79"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.79.tgz#5efe7d4a6d8c453c7e9eaf55d931f4a22fac5169"
+  version "6.0.80"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-6.0.80.tgz#914a75799605b4609bd9a2918c865ba3c4141367"
 
 bootstrap@>=3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-3.3.7.tgz#5a389394549f23330875a3b150656574f8a9eb71"
 
-htmlrapier@>=4.1.0:
-  version "8.0.4"
-  resolved "https://registry.yarnpkg.com/htmlrapier/-/htmlrapier-8.0.4.tgz#7ab2b4f29143cac558e8931bcc5dfb1b9eaf36fb"
+htmlrapier@>=8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/htmlrapier/-/htmlrapier-8.1.0.tgz#b1d9fadf8acedb57f954759dd8287fcdf469f1c7"
   dependencies:
     "@types/es6-promise" "^0.0.32"
     tslib "^1.6.1"

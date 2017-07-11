@@ -9,9 +9,9 @@
   "author": "threax",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^6.0.69",
     "bootstrap": ">=3.3.7",
-    "jquery": "^3.2.1",
-    "@types/node": "^6.0.69"
+    "jquery": "^3.2.1"
   },
   "dependencies": {
     "htmlrapier": ">=8.1.0"
