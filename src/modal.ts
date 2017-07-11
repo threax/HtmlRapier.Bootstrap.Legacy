@@ -5,12 +5,10 @@ import * as events from 'hr.eventdispatcher';
 declare var $;
 
 //Toggle Plugin
-class ModalStates extends toggles.ToggleStates{
+class ModalStates extends toggles.ToggleStates {
     private modal;
-    private openEventHander = new events.ActionEventDispatcher<any>();
-    private closeEventHandler = new events.ActionEventDispatcher<any>();
 
-    constructor(element, next) {
+    constructor(element, next: toggles.IToggleStates) {
         super(next);
         this.modal = $(element);
         var theModal = this.modal.modal({
@@ -20,24 +18,16 @@ class ModalStates extends toggles.ToggleStates{
         var thisShim = this;
 
         this.modal.on('show.bs.modal', (e) => {
-            thisShim.openEventHander.fire(thisShim);
+            this.fireStateChange('on');
         });
         this.modal.on('hide.bs.modal', (e) => {
-            thisShim.closeEventHandler.fire(thisShim);
+            this.fireStateChange('off');
         });
         this.addState('on', 'on');
         this.addState('off', 'off');
     }
 
-    public get onEvent() {
-        return this.openEventHander.modifier;
-    }
-
-    public get offEvent() {
-        return this.closeEventHandler.modifier;
-    }
-
-    public activateState(state) {
+    public activateState(state): boolean {
         switch (state) {
             case 'on':
                 this.modal.modal('show');
@@ -46,13 +36,14 @@ class ModalStates extends toggles.ToggleStates{
                 this.modal.modal('hide');
                 break;
         }
+        return false;
     }
 }
 
 /**
  * Activate all modal htmlrapier plugin.
  */
-export function activate(){
+export function activate() {
     toggles.addTogglePlugin(function (element, states, toggle) {
         if (element.classList.contains('modal')) {
             toggle = new ModalStates(element, toggle);
