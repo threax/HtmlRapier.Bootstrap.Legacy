@@ -1,6 +1,6 @@
 {
   "name": "htmlrapier.bootstrap",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Bootstrap 3 for html rapier, shims jquery and bootstrap javascript for html rapier use",
   "repository": {
     "type": "git",
@@ -14,6 +14,6 @@
     "@types/node": "^6.0.69"
   },
   "dependencies": {
-    "htmlrapier": ">=4.1.0"
+    "htmlrapier": ">=8.1.0"
   }
 }
