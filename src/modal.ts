@@ -2,7 +2,15 @@ import "hr.bootstrap";
 import * as toggles from 'hr.toggles';
 import * as events from 'hr.eventdispatcher';
 
-declare var $;
+declare var $; //Using global jquery
+
+//Scrollbar fix, keeps scrollbars at correct length with multiple modals
+//Since this is on the document, only needed once, so register here
+//Works in bootstrap 3.3.7.
+//Thanks to A1rPun at https://stackoverflow.com/questions/19305821/multiple-modals-overlay
+$(document).on('hidden.bs.modal', '.modal', function () {
+    $('.modal:visible').length && $(document.body).addClass('modal-open');
+});
 
 //Toggle Plugin
 class ModalStates extends toggles.ToggleStates {
