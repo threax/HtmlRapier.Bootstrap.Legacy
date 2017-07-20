@@ -1,5 +1,6 @@
 import * as modal from 'hr.bootstrap.modal';
 import * as dropdown from 'hr.bootstrap.dropdown';
+import * as tab from 'hr.bootstrap.tab';
 
 var needsActivation = true;
 
@@ -12,5 +13,6 @@ export function activate(){
 
         modal.activate();
         dropdown.activate();
+        tab.activate();
     }
 }
