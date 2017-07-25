@@ -1,4 +1,3 @@
-import "hr.bootstrap";
 import * as toggles from 'hr.toggles';
 import * as events from 'hr.eventdispatcher';
 
