@@ -1,7 +1,7 @@
 {
   "name": "htmlrapier.bootstrap",
-  "version": "6.1.0",
-  "description": "Bootstrap 3 for html rapier, shims jquery and bootstrap javascript for html rapier use",
+  "version": "6.2.0",
+  "description": "Bootstrap for html rapier, shims jquery and bootstrap javascript for html rapier use. Supports bootstrap 3 and 4.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/threax/HtmlRapier.Bootstrap.git"
