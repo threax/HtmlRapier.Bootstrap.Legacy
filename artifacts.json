@@ -10,7 +10,6 @@
     "pathBase": "..",
     "outDir": "lib",
     "copy": [
-      "../bootstrap/dist/fonts/*",
       "../bootstrap/dist/js/bootstrap.min.js"
     ]
   }
