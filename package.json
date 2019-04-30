@@ -8,9 +8,6 @@
   },
   "author": "threax",
   "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^6.0.69"
-  },
   "dependencies": {
     "htmlrapier": ">=8.1.0",
     "bootstrap": ">=3.3.7",
