@@ -1,6 +1,6 @@
 {
   "name": "htmlrapier.bootstrap",
-  "version": "7.2.0",
+  "version": "8.0.0",
   "description": "Bootstrap for html rapier, shims jquery and bootstrap javascript for html rapier use. Supports bootstrap 3 and 4.",
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
     "bootstrap": ">=3.3.7",
     "jquery": ">=3.5.0"
   },
-  "files":[
+  "files": [
     "src/**/*",
     "tsimport.json",
     "artifacts.json"
