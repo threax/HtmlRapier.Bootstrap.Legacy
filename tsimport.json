@@ -1,11 +1,4 @@
 {
-  "compilerOptions": {
-    "paths": {
-      "hr.bootstrap.*": [
-        "src/*"
-      ]
-    }
-  },
   "include": [
     "src\\**\\*.ts",
     "main.ts"
